@@ -1,0 +1,5 @@
+# in _config.yml
+title: "Basicos de Machine Learning"
+# logo: images/logo.png
+execute:
+  execute_notebooks: "off"
