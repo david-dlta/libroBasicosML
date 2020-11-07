@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Introduccion &#8212; Basicos de Machine Learning</title>
+    <title>Introducción &#8212; Basicos de Machine Learning</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -45,6 +45,8 @@
     <script type="text/javascript" src="_static/copybutton.js"></script>
     <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script type="text/javascript" src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script type="text/javascript">
         const thebe_selector = ".thebe"
@@ -54,7 +56,7 @@
     <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="HOLA" href="page1.html" />
+    <link rel="next" title="Regresión lineal simple" href="page1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -88,14 +90,14 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="#">
-   Introduccion
+   Introducción
   </a>
  </li>
 </ul>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="page1.html">
-   HOLA
+   Regresión lineal simple
   </a>
  </li>
 </ul>
@@ -190,11 +192,6 @@
    Quien soy
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#my-book-section">
-   My book section
-  </a>
- </li>
 </ul>
 
         </nav>
@@ -207,15 +204,14 @@
               <div>
                 
   <div class="section" id="introduccion">
-<h1>Introduccion<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h1>
-<p>Este libro cubre los componentes básicos de los métodos mas usados en el <em>Machine Learning</em>. Esta es una guía de conceptos con los que cualquier estudiantes de <em>ML</em> debería sentirse comódo. Cada capítulo del libro contiene uno o varios de los métodos mas utilizados.</p>
+<h1>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h1>
+<p>Este libro cubre los componentes básicos de los métodos mas usados en el <em>Machine Learning</em>. Esta es una guía de conceptos con los que cualquier estudiantes de <em>ML</em> debería sentirse comódo. Cada capítulo del libro contiene uno o varios de los métodos mas utilizados comenzando por los más simples hasta llegar a los más complejos.</p>
 <div class="section" id="objetivos">
 <h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
 <p>Esta guía nace con un objetivo dual.</p>
-<p>Por una parte nace con el objetivo de ser una herramienta para todos los estaudaintes de <em>ML</em> que quieran profundizar más en cada uno de los métodos básicos que se van a tratar en el libro. Pudiendo llegar a entender los conceptos matemáticos que se encuentran detrás de estos. Como hemos dicho el libro nace con la idea de ser una caja de herramientas con la que cualquier Ingeniero de <em>Machine Learning</em> debe contar y a su vez los capítulos son cada una de las herramientas con las que podemos trabajar.</p>
+<p>Por una parte nace con el objetivo de ser una herramienta para todos los estaudaintes de <em>ML</em> que quieran profundizar más en cada uno de los métodos básicos de esta disciplina. Pudiendo llegar a entender los conceptos matemáticos que se encuentran detrás de estos. Como hemos dicho el libro nace con la idea de ser una caja de herramientas con la que cualquier Ingeniero de <em>Machine Learning</em> debe contar y a su vez los capítulos son cada una de las herramientas con las que podemos trabajar.</p>
 <p>La mejor manera de sentirse cómodo con estos métodos es crearlos desde 0, para así conocer perféctamente su construcción. Cuando hablo de entender su construcción me refiero teoricamente y con código. El objetivo esencial de este libro es el de proporcionar estas dos visiones.</p>
-<p>Por otra parte como modo de transformar mis conocimientos en palabras y ver si, personalmente, soy capaz de explicar e implementar los métodos que se van a tratar en el libro.</p>
-<p>In my experience, the best way to become comfortable with these methods is to see them derived from scratch, both in theory and in code. The purpose of this book is to provide those derivations. Each chapter is broken into three sections. The concept sections introduce the methods conceptually and derive their results mathematically. The construction sections show how to construct the methods from scratch using Python. The implementation sections demonstrate how to apply the methods using packages in Python like scikit-learn, statsmodels, and tensorflow.</p>
+<p>El segundo objetivo es algo más personal. Se trata de asimilar los conceptos que se tratan en el libro, transformarlos en código y finalmente plasmarlos con palabras y que estas sean entendibles.</p>
 </div>
 <div class="section" id="estructura-del-libro">
 <h2>Estructura del libro<a class="headerlink" href="#estructura-del-libro" title="Permalink to this headline">¶</a></h2>
@@ -231,15 +227,10 @@
 <div class="section" id="quien-soy">
 <h2>Quien soy<a class="headerlink" href="#quien-soy" title="Permalink to this headline">¶</a></h2>
 <p>Por último queda presentarme. Mi nombre es David de la Torre y soy graduado en Ingeniería Informática por la Universidad de las Islas Baleares. Desde mi primera experiencia laboral he estado envuelto en el mundo del snálisis de datos. Actualmente continuo trabajando en el análisis de datos y a la vez desarrollando un master en <em>Business Intelligence</em> y <em>Data Science</em>.</p>
-<p>Dado que mi nivel de conocimineto en el campo no es muy amplio, y que esta aguía también es una práctica para profundizar en el los métodos que se tratan, los conociminetos se mantendrán en constante revisión.</p>
-</div>
-<div class="section" id="my-book-section">
-<h2>My book section<a class="headerlink" href="#my-book-section" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Here’s a note!</p>
+<p>Dado que mi nivel de conocimineto en el campo no es muy amplio, y que esta aguía también es una práctica para profundizar en el los métodos que se tratan, los conociminetos se mantendrán en constante revisión.</p>
 </div>
-<p>That’s it!</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -273,7 +264,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="page1.html" title="next page">HOLA</a>
+    <a class='right-next' id="next-link" href="page1.html" title="next page">Regresión lineal simple</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -1,4 +1,9 @@
-x <- rnorm(100000)
-hist(x,col='blue',breaks=50)
+#Paquetes necesarios
+head(mtcars,10)
+
+RegresionLinealFit <- function() {
+  
+  return()
+}
 
 

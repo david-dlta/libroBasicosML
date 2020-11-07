@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>HOLA &#8212; Basicos de Machine Learning</title>
+    <title>Regresión lineal simple &#8212; Basicos de Machine Learning</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -45,6 +45,8 @@
     <script type="text/javascript" src="_static/copybutton.js"></script>
     <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script type="text/javascript" src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script type="text/javascript">
         const thebe_selector = ".thebe"
@@ -54,7 +56,7 @@
     <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="My book title" href="landing-page.html" />
+    <link rel="prev" title="Introducción" href="landing-page.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -88,14 +90,14 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="landing-page.html">
-   My book title
+   Introducción
   </a>
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   HOLA
+   Regresión lineal simple
   </a>
  </li>
 </ul>
@@ -188,8 +190,25 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#prueba-1">
-   Prueba 1
+  <a class="reference internal nav-link" href="#concepto">
+   Concepto
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estructura-del-modelo">
+     Estructura del modelo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimacion-de-parametros">
+     Estimación de parámetros
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementacion">
+   Implementación
   </a>
  </li>
 </ul>
@@ -203,19 +222,71 @@
         
               <div>
                 
-  <div class="section" id="hola">
-<h1>HOLA<a class="headerlink" href="#hola" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="prueba-1">
-<h2>Prueba 1<a class="headerlink" href="#prueba-1" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="regresion-lineal-simple">
+<h1>Regresión lineal simple<a class="headerlink" href="#regresion-lineal-simple" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="concepto">
+<h2>Concepto<a class="headerlink" href="#concepto" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="estructura-del-modelo">
+<h3>Estructura del modelo<a class="headerlink" href="#estructura-del-modelo" title="Permalink to this headline">¶</a></h3>
+<p>La Regresión Lineal simple es un modelo relativamente simple ymuy utilizado en el Machine Learning. Por ello es un buen punto de partida para iniciarse.</p>
+<p>En la Regresión Lineal la variable dependiente <span class="math notranslate nohighlight">\(y\)</span> sigue una función lineal de uno o más predictors <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, … , <span class="math notranslate nohighlight">\(x_D\)</span> más un error. La observación <span class="math notranslate nohighlight">\(n\)</span> tendrá la forma: $<span class="math notranslate nohighlight">\(y_n = \beta_0 + \beta_1x_{n1} +...+ \beta_1x_{nD} + \epsilon_n \)</span>$</p>
+<p>Donde <span class="math notranslate nohighlight">\(\beta_0\)</span> es el interceptor con el eje de coordenadas, <span class="math notranslate nohighlight">\(\beta_1, ... ,\beta_D\)</span> los coeficientes de las variables y <span class="math notranslate nohighlight">\(\epsilon\)</span> el error entre el valor real y la funcion lineal de los predictors.</p>
+<p>Las matemáticas se simplifican cuando usamos vectores para representar nuestreos predictors y coeficientes. <span class="math notranslate nohighlight">\(x_n\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span> se definene de la sigueinte manera:</p>
+<div class="math notranslate nohighlight">
+\[x_n = (1 x_{n1} ... x_{nD})^T\]</div>
+<div class="math notranslate nohighlight">
+\[\beta = (1 \beta_1 ... \beta_D)^T\]</div>
+<p>Por lo que equivalentemente podemos expresar <span class="math notranslate nohighlight">\(y_n\)</span> como:</p>
+<div class="math notranslate nohighlight">
+\[y_n = \beta^Tx_n + \epsilon_n\]</div>
+</div>
+<div class="section" id="estimacion-de-parametros">
+<h3>Estimación de parámetros<a class="headerlink" href="#estimacion-de-parametros" title="Permalink to this headline">¶</a></h3>
+<p>Una vez conocemos la estructura que nuestros datos siguen. La tarea del <em>Machine Learning</em> es la de estimar los parámetros <span class="math notranslate nohighlight">\(\beta\)</span>. se representan con <span class="math notranslate nohighlight">\(\hat{\beta}\)</span>. Estas estimaciones nos dan valores ajustados para la variable target representada por <span class="math notranslate nohighlight">\(\hat{y}_n\)</span>.</p>
+<p>La tarea de la estimación se puede realizar de dos maneras. La primera sería mediante la minimización del coste y la otra mediante la maximización de la probabilidad. En este caso nos vamos a centrar en la primera técnica para estimar <span class="math notranslate nohighlight">\(\hat{y}_n\)</span>.</p>
+<p>En <em>Machine Learning</em> normalmente se suele seleccionar una función de coste para los modelos. Esta funcion de coste define como de bién, dados unos parámetros, se es capaz de estimar los datos observados. Una vez contamos con dicha funcion podemos modificar los parámetros e iterativamente observar como son nuestras predicciones (buenas o malas). La función de coste más usada para la Regresión Lineal Simple es la media de los errores cuadrados.</p>
+<p>La función de coste de los mínimos cuadrados representa que el coste de nuestro modelo es proporcional a la suma de lso cuadrados de las diferencias entre los valores reales <span class="math notranslate nohighlight">\(y_n\)</span> y los valores ajustados <span class="math notranslate nohighlight">\(\hat{y}_n\)</span>, <span class="math notranslate nohighlight">\((y_n - \hat{y}_n)^2\)</span>. La razón de elevar al cuadrado la diferencia es la de perjudicar adicionalmente las predicciones que se alejen en exceso de los valores reales.</p>
+</div>
+</div>
+<div class="section" id="implementacion">
+<h2>Implementación<a class="headerlink" href="#implementacion" title="Permalink to this headline">¶</a></h2>
+<p>En esta seccion vamos a demostrar como construir un modelo de Regresión Lineal Simple en R.</p>
+<p>Vamos a intentar simplificar al máximo la implementación del modelo. Para realiar esta tarea vamos a crear una función con el nombre de <font color=#8b0000>RegresionLinealFit()</font> que será la encargada de estimar los parámetros <span class="math notranslate nohighlight">\(\beta\)</span>. Que símplemente consiste en calcular</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta = (X^TX)^{-1}X^Ty\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">100000</span><span class="p">)</span>
-<span class="nf">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&#39;blue&#39;</span><span class="p">,</span><span class="n">breaks</span><span class="o">=</span><span class="m">50</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Paquetes necesarios</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">mtcars</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/page1_2_0.png" src="_images/page1_2_0.png" />
+<div class="output text_html"><table>
+<thead><tr><th></th><th scope=col>mpg</th><th scope=col>cyl</th><th scope=col>disp</th><th scope=col>hp</th><th scope=col>drat</th><th scope=col>wt</th><th scope=col>qsec</th><th scope=col>vs</th><th scope=col>am</th><th scope=col>gear</th><th scope=col>carb</th></tr></thead>
+<tbody>
+	<tr><th scope=row>Mazda RX4</th><td>21.0 </td><td>6    </td><td>160.0</td><td>110  </td><td>3.90 </td><td>2.620</td><td>16.46</td><td>0    </td><td>1    </td><td>4    </td><td>4    </td></tr>
+	<tr><th scope=row>Mazda RX4 Wag</th><td>21.0 </td><td>6    </td><td>160.0</td><td>110  </td><td>3.90 </td><td>2.875</td><td>17.02</td><td>0    </td><td>1    </td><td>4    </td><td>4    </td></tr>
+	<tr><th scope=row>Datsun 710</th><td>22.8 </td><td>4    </td><td>108.0</td><td> 93  </td><td>3.85 </td><td>2.320</td><td>18.61</td><td>1    </td><td>1    </td><td>4    </td><td>1    </td></tr>
+	<tr><th scope=row>Hornet 4 Drive</th><td>21.4 </td><td>6    </td><td>258.0</td><td>110  </td><td>3.08 </td><td>3.215</td><td>19.44</td><td>1    </td><td>0    </td><td>3    </td><td>1    </td></tr>
+	<tr><th scope=row>Hornet Sportabout</th><td>18.7 </td><td>8    </td><td>360.0</td><td>175  </td><td>3.15 </td><td>3.440</td><td>17.02</td><td>0    </td><td>0    </td><td>3    </td><td>2    </td></tr>
+	<tr><th scope=row>Valiant</th><td>18.1 </td><td>6    </td><td>225.0</td><td>105  </td><td>2.76 </td><td>3.460</td><td>20.22</td><td>1    </td><td>0    </td><td>3    </td><td>1    </td></tr>
+	<tr><th scope=row>Duster 360</th><td>14.3 </td><td>8    </td><td>360.0</td><td>245  </td><td>3.21 </td><td>3.570</td><td>15.84</td><td>0    </td><td>0    </td><td>3    </td><td>4    </td></tr>
+	<tr><th scope=row>Merc 240D</th><td>24.4 </td><td>4    </td><td>146.7</td><td> 62  </td><td>3.69 </td><td>3.190</td><td>20.00</td><td>1    </td><td>0    </td><td>4    </td><td>2    </td></tr>
+	<tr><th scope=row>Merc 230</th><td>22.8 </td><td>4    </td><td>140.8</td><td> 95  </td><td>3.92 </td><td>3.150</td><td>22.90</td><td>1    </td><td>0    </td><td>4    </td><td>2    </td></tr>
+	<tr><th scope=row>Merc 280</th><td>19.2 </td><td>6    </td><td>167.6</td><td>123  </td><td>3.92 </td><td>3.440</td><td>18.30</td><td>1    </td><td>0    </td><td>4    </td><td>4    </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">RegresionLinealFit</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">()</span> <span class="p">{</span>
+  
+  <span class="nf">return</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -249,7 +320,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="landing-page.html" title="previous page">My book title</a>
+    <a class='left-prev' id="prev-link" href="landing-page.html" title="previous page">Introducción</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
