@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Introducción &#8212; Basicos de Machine Learning</title>
+    <title>Implementación &#8212; Basicos de Machine Learning</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -56,7 +56,7 @@
     <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Implementación" href="RL_implementacion.html" />
+    <link rel="prev" title="Introducción" href="landing-page.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -89,7 +89,7 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="#">
+  <a class="reference internal" href="landing-page.html">
    Introducción
   </a>
  </li>
@@ -99,9 +99,9 @@
   My first part
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="RL_implementacion.html">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Implementación
   </a>
  </li>
@@ -147,9 +147,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/landing-page.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/RL_implementacion.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -167,39 +167,27 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/RL_implementacion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objetivos">
-   Objetivos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#estructura-del-libro">
-   Estructura del libro
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#notacion">
-   Notación
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quien-soy">
-   Quien soy
-  </a>
- </li>
-</ul>
-
-        </nav>
         
     </div>
 </div>
@@ -208,35 +196,45 @@
         
               <div>
                 
-  <div class="section" id="introduccion">
-<h1>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h1>
-<p>Este libro cubre los componentes básicos de los métodos mas usados en el <em>Machine Learning</em>. Esta es una guía de conceptos con los que cualquier estudiantes de <em>ML</em> debería sentirse comódo. Cada capítulo del libro contiene uno o varios de los métodos mas utilizados comenzando por los más simples hasta llegar a los más complejos.</p>
-<div class="section" id="objetivos">
-<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
-<p>Esta guía nace con un objetivo dual.</p>
-<p>Por una parte nace con el objetivo de ser una herramienta para todos los estaudaintes de <em>ML</em> que quieran profundizar más en cada uno de los métodos básicos de esta disciplina. Pudiendo llegar a entender los conceptos matemáticos que se encuentran detrás de estos. Como hemos dicho el libro nace con la idea de ser una caja de herramientas con la que cualquier Ingeniero de <em>Machine Learning</em> debe contar y a su vez los capítulos son cada una de las herramientas con las que podemos trabajar.</p>
-<p>La mejor manera de sentirse cómodo con estos métodos es crearlos desde 0, para así conocer perféctamente su construcción. Cuando hablo de entender su construcción me refiero teoricamente y con código. El objetivo esencial de este libro es el de proporcionar estas dos visiones.</p>
-<p>El segundo objetivo es algo más personal. Se trata de asimilar los conceptos que se tratan en el libro, transformarlos en código y finalmente plasmarlos con palabras y que estas sean entendibles.</p>
+  <div class="section" id="implementacion">
+<h1>Implementación<a class="headerlink" href="#implementacion" title="Permalink to this headline">¶</a></h1>
+<p>En esta seccion vamos a demostrar como construir un modelo de Regresión Lineal Simple en R.</p>
+<p>Vamos a intentar simplificar al máximo la implementación del modelo. Para realiar esta tarea vamos a crear una función con el nombre de <font color=#8b0000>RegresionLinealFit()</font> que será la encargada de estimar los parámetros <span class="math notranslate nohighlight">\(\beta\)</span>. Que símplemente consiste en calcular</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta = (X^TX)^{-1}X^Ty\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Paquetes necesarios</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">mtcars</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="estructura-del-libro">
-<h2>Estructura del libro<a class="headerlink" href="#estructura-del-libro" title="Permalink to this headline">¶</a></h2>
-<p>Como hemos dicho la mejor manera de interiorizar cada uno de los métodos es construirlo poco a poco desde la base, de forma matemática y en forma de código. Por ello los capítulos se dividen en 2 partes:</p>
-<ol class="simple">
-<li><p>En la sección de <strong>Concepto</strong> se introducen los métodos conceptualmente de los cuales se deriva los resultados matemáticos.</p></li>
-<li><p>En la sección de <strong>Construcción</strong> se muestran como construir los métodos desde 0 usando <strong>R</strong>.</p></li>
-</ol>
 </div>
-<div class="section" id="notacion">
-<h2>Notación<a class="headerlink" href="#notacion" title="Permalink to this headline">¶</a></h2>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th></th><th scope=col>mpg</th><th scope=col>cyl</th><th scope=col>disp</th><th scope=col>hp</th><th scope=col>drat</th><th scope=col>wt</th><th scope=col>qsec</th><th scope=col>vs</th><th scope=col>am</th><th scope=col>gear</th><th scope=col>carb</th></tr></thead>
+<tbody>
+	<tr><th scope=row>Mazda RX4</th><td>21.0 </td><td>6    </td><td>160.0</td><td>110  </td><td>3.90 </td><td>2.620</td><td>16.46</td><td>0    </td><td>1    </td><td>4    </td><td>4    </td></tr>
+	<tr><th scope=row>Mazda RX4 Wag</th><td>21.0 </td><td>6    </td><td>160.0</td><td>110  </td><td>3.90 </td><td>2.875</td><td>17.02</td><td>0    </td><td>1    </td><td>4    </td><td>4    </td></tr>
+	<tr><th scope=row>Datsun 710</th><td>22.8 </td><td>4    </td><td>108.0</td><td> 93  </td><td>3.85 </td><td>2.320</td><td>18.61</td><td>1    </td><td>1    </td><td>4    </td><td>1    </td></tr>
+	<tr><th scope=row>Hornet 4 Drive</th><td>21.4 </td><td>6    </td><td>258.0</td><td>110  </td><td>3.08 </td><td>3.215</td><td>19.44</td><td>1    </td><td>0    </td><td>3    </td><td>1    </td></tr>
+	<tr><th scope=row>Hornet Sportabout</th><td>18.7 </td><td>8    </td><td>360.0</td><td>175  </td><td>3.15 </td><td>3.440</td><td>17.02</td><td>0    </td><td>0    </td><td>3    </td><td>2    </td></tr>
+	<tr><th scope=row>Valiant</th><td>18.1 </td><td>6    </td><td>225.0</td><td>105  </td><td>2.76 </td><td>3.460</td><td>20.22</td><td>1    </td><td>0    </td><td>3    </td><td>1    </td></tr>
+	<tr><th scope=row>Duster 360</th><td>14.3 </td><td>8    </td><td>360.0</td><td>245  </td><td>3.21 </td><td>3.570</td><td>15.84</td><td>0    </td><td>0    </td><td>3    </td><td>4    </td></tr>
+	<tr><th scope=row>Merc 240D</th><td>24.4 </td><td>4    </td><td>146.7</td><td> 62  </td><td>3.69 </td><td>3.190</td><td>20.00</td><td>1    </td><td>0    </td><td>4    </td><td>2    </td></tr>
+	<tr><th scope=row>Merc 230</th><td>22.8 </td><td>4    </td><td>140.8</td><td> 95  </td><td>3.92 </td><td>3.150</td><td>22.90</td><td>1    </td><td>0    </td><td>4    </td><td>2    </td></tr>
+	<tr><th scope=row>Merc 280</th><td>19.2 </td><td>6    </td><td>167.6</td><td>123  </td><td>3.92 </td><td>3.440</td><td>18.30</td><td>1    </td><td>0    </td><td>4    </td><td>4    </td></tr>
+</tbody>
+</table>
+</div></div>
 </div>
-<div class="section" id="quien-soy">
-<h2>Quien soy<a class="headerlink" href="#quien-soy" title="Permalink to this headline">¶</a></h2>
-<p>Por último queda presentarme. Mi nombre es David de la Torre y soy graduado en Ingeniería Informática por la Universidad de las Islas Baleares. Desde mi primera experiencia laboral he estado envuelto en el mundo del snálisis de datos. Actualmente continuo trabajando en el análisis de datos y a la vez desarrollando un master en <em>Business Intelligence</em> y <em>Data Science</em>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Dado que mi nivel de conocimineto en el campo no es muy amplio, y que esta aguía también es una práctica para profundizar en el los métodos que se tratan, los conociminetos se mantendrán en constante revisión.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">RegresionLinealFit</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">()</span> <span class="p">{</span>
+  
+  <span class="nf">return</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
 </div>
 </div>
 </div>
@@ -250,16 +248,16 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "ir",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
               </div>
               
@@ -269,7 +267,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="RL_implementacion.html" title="next page">Implementación</a>
+    <a class='left-prev' id="prev-link" href="landing-page.html" title="previous page">Introducción</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
