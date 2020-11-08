@@ -94,6 +94,11 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  My first part
+ </span>
+</p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
@@ -229,7 +234,9 @@
 <div class="section" id="estructura-del-modelo">
 <h3>Estructura del modelo<a class="headerlink" href="#estructura-del-modelo" title="Permalink to this headline">¶</a></h3>
 <p>La Regresión Lineal simple es un modelo relativamente simple ymuy utilizado en el Machine Learning. Por ello es un buen punto de partida para iniciarse.</p>
-<p>En la Regresión Lineal la variable dependiente <span class="math notranslate nohighlight">\(y\)</span> sigue una función lineal de uno o más predictors <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, … , <span class="math notranslate nohighlight">\(x_D\)</span> más un error. La observación <span class="math notranslate nohighlight">\(n\)</span> tendrá la forma: $<span class="math notranslate nohighlight">\(y_n = \beta_0 + \beta_1x_{n1} +...+ \beta_1x_{nD} + \epsilon_n \)</span>$</p>
+<p>En la Regresión Lineal la variable dependiente <span class="math notranslate nohighlight">\(y\)</span> sigue una función lineal de uno o más predictors <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, … , <span class="math notranslate nohighlight">\(x_D\)</span> más un error. La observación <span class="math notranslate nohighlight">\(n\)</span> tendrá la forma:</p>
+<div class="math notranslate nohighlight">
+\[y_n = \beta_0 + \beta_1x_{n1} +...+ \beta_1x_{nD} + \epsilon_n \]</div>
 <p>Donde <span class="math notranslate nohighlight">\(\beta_0\)</span> es el interceptor con el eje de coordenadas, <span class="math notranslate nohighlight">\(\beta_1, ... ,\beta_D\)</span> los coeficientes de las variables y <span class="math notranslate nohighlight">\(\epsilon\)</span> el error entre el valor real y la funcion lineal de los predictors.</p>
 <p>Las matemáticas se simplifican cuando usamos vectores para representar nuestreos predictors y coeficientes. <span class="math notranslate nohighlight">\(x_n\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span> se definene de la sigueinte manera:</p>
 <div class="math notranslate nohighlight">
