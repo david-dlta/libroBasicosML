@@ -1,3 +1,6 @@
 # _toc.yml
 - file: landing-page
-- file: page1
+
+- part: My first part
+  chapters:
+  - file: page1
