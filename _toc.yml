@@ -3,4 +3,5 @@
 
 - part: My first part
   chapters:
-  - file: page1
+  - file: RL_comcepto
+  - file: RL_implementacion

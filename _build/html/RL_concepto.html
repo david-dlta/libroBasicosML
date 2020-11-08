@@ -1,11 +1,10 @@
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Index &#8212; Basicos de Machine Learning</title>
+    <title>Regresión lineal simple &#8212; Basicos de Machine Learning</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -55,7 +54,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -143,6 +142,18 @@
             class="fas fa-download"></i></button>
 
     
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/RL_concepto.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
 </div>
         <!-- Source interaction buttons -->
 
@@ -155,10 +166,53 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/RL_concepto.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concepto">
+   Concepto
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estructura-del-modelo">
+     Estructura del modelo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimacion-de-parametros">
+     Estimación de parámetros
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
         
     </div>
 </div>
@@ -167,13 +221,55 @@
         
               <div>
                 
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="regresion-lineal-simple">
+<h1>Regresión lineal simple<a class="headerlink" href="#regresion-lineal-simple" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="concepto">
+<h2>Concepto<a class="headerlink" href="#concepto" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="estructura-del-modelo">
+<h3>Estructura del modelo<a class="headerlink" href="#estructura-del-modelo" title="Permalink to this headline">¶</a></h3>
+<p>La Regresión Lineal simple es un modelo relativamente simple ymuy utilizado en el Machine Learning. Por ello es un buen punto de partida para iniciarse.</p>
+<p>En la Regresión Lineal la variable dependiente <span class="math notranslate nohighlight">\(y\)</span> sigue una función lineal de uno o más predictors <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, … , <span class="math notranslate nohighlight">\(x_D\)</span> más un error. La observación <span class="math notranslate nohighlight">\(n\)</span> tendrá la forma:</p>
+<div class="math notranslate nohighlight">
+\[y_n = \beta_0 + \beta_1x_{n1} +...+ \beta_1x_{nD} + \epsilon_n \]</div>
+<p>Donde <span class="math notranslate nohighlight">\(\beta_0\)</span> es el interceptor con el eje de coordenadas, <span class="math notranslate nohighlight">\(\beta_1, ... ,\beta_D\)</span> los coeficientes de las variables y <span class="math notranslate nohighlight">\(\epsilon\)</span> el error entre el valor real y la funcion lineal de los predictors.</p>
+<p>Las matemáticas se simplifican cuando usamos vectores para representar nuestreos predictors y coeficientes. <span class="math notranslate nohighlight">\(x_n\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span> se definene de la sigueinte manera:</p>
+<div class="math notranslate nohighlight">
+\[x_n = (1 x_{n1} ... x_{nD})^T\]</div>
+<div class="math notranslate nohighlight">
+\[\beta = (1 \beta_1 ... \beta_D)^T\]</div>
+<p>Por lo que equivalentemente podemos expresar <span class="math notranslate nohighlight">\(y_n\)</span> como:</p>
+<div class="math notranslate nohighlight">
+\[y_n = \beta^Tx_n + \epsilon_n\]</div>
+</div>
+<div class="section" id="estimacion-de-parametros">
+<h3>Estimación de parámetros<a class="headerlink" href="#estimacion-de-parametros" title="Permalink to this headline">¶</a></h3>
+<p>Una vez conocemos la estructura que nuestros datos siguen. La tarea del <em>Machine Learning</em> es la de estimar los parámetros <span class="math notranslate nohighlight">\(\beta\)</span>. se representan con <span class="math notranslate nohighlight">\(\hat{\beta}\)</span>. Estas estimaciones nos dan valores ajustados para la variable target representada por <span class="math notranslate nohighlight">\(\hat{y}_n\)</span>.</p>
+<p>La tarea de la estimación se puede realizar de dos maneras. La primera sería mediante la minimización del coste y la otra mediante la maximización de la probabilidad. En este caso nos vamos a centrar en la primera técnica para estimar <span class="math notranslate nohighlight">\(\hat{y}_n\)</span>.</p>
+<p>En <em>Machine Learning</em> normalmente se suele seleccionar una función de coste para los modelos. Esta funcion de coste define como de bién, dados unos parámetros, se es capaz de estimar los datos observados. Una vez contamos con dicha funcion podemos modificar los parámetros e iterativamente observar como son nuestras predicciones (buenas o malas). La función de coste más usada para la Regresión Lineal Simple es la media de los errores cuadrados.</p>
+<p>La función de coste de los mínimos cuadrados representa que el coste de nuestro modelo es proporcional a la suma de lso cuadrados de las diferencias entre los valores reales <span class="math notranslate nohighlight">\(y_n\)</span> y los valores ajustados <span class="math notranslate nohighlight">\(\hat{y}_n\)</span>, <span class="math notranslate nohighlight">\((y_n - \hat{y}_n)^2\)</span>. La razón de elevar al cuadrado la diferencia es la de perjudicar adicionalmente las predicciones que se alejen en exceso de los valores reales.</p>
+</div>
+</div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
 
               </div>
               
