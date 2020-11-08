@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Construcción &#8212; Basicos de Machine Learning</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/togglebutton.js"></script>
+    <script type="text/javascript" src="_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script type="text/javascript" src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Concepto" href="RL_concepto.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Basicos de Machine Learning</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="landing-page.html">
+   Introducción
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Regresión Lineal Simple
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="RL_concepto.html">
+   Concepto
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Construcción
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/RL_construccion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/RL_construccion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="construccion">
+<h1>Construcción<a class="headerlink" href="#construccion" title="Permalink to this headline">¶</a></h1>
+<p>En esta seccion vamos a demostrar como construir un modelo de Regresión Lineal Simple en R.</p>
+<p>Vamos a intentar simplificar al máximo la implementación del modelo. Para realiar esta tarea vamos a crear una función con el nombre de <font color=#8b0000>RegresionLinealFit()</font> que será la encargada de estimar los parámetros <span class="math notranslate nohighlight">\(\beta\)</span>. Que símplemente consiste en calcular</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta = (X^TX)^{-1}X^Ty\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">RegresionLinealFit</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1"># Creamos una matriz de 1</span>
+    <span class="n">unos</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">50</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span> <span class="c1">#El numero nrow depen del dataset usado</span>
+    
+    <span class="c1"># Unimos la matrix X con la matriz de 1</span>
+    <span class="n">X</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">unos</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+    
+    <span class="n">X_T</span> <span class="o">&lt;-</span> <span class="nf">t</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1"># Traspuesta de la matrix X</span>
+    <span class="n">B_hat</span> <span class="o">&lt;-</span> <span class="nf">solve</span><span class="p">(</span><span class="n">X_T</span> <span class="o">%*%</span> <span class="n">X</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">X_T</span> <span class="o">%*%</span> <span class="n">Y</span> <span class="c1"># Aplicamos la funcion </span>
+    
+  <span class="nf">return</span><span class="p">(</span><span class="n">B_hat</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una vez hemos construido el modelo solo nos queda probarlo sobre un consjunto de datos. Las pruebas las realizaremos con el conjunto de datos <font color=#8b0000>cars</font>, que contiene datos sobre velocidades y distancias que viajan 50 coches una vez comienzan a frenar.</p>
+<p>Veamos como se ven representados dichos datos en una nube de puntos donde el eje <em>X</em> es la velocidad a la que circulan los vehiculos y el eje <em>Y</em> la distancia que viajan desde el momento que comienzan a frenar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">%&gt;%</span>
+        <span class="nf">select</span><span class="p">(</span><span class="n">speed</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes </span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">speed</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">dist</span><span class="p">))</span><span class="o">+</span>
+            <span class="nf">geom_point</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/RL_construccion_5_0.png" src="_images/RL_construccion_5_0.png" />
+</div>
+</div>
+<p>El primer paso es separar la variable dependiente de la independiente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">X_list</span> <span class="o">&lt;-</span> <span class="n">cars</span> <span class="o">%&gt;%</span>
+        <span class="nf">select</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+
+<span class="n">Y_list</span> <span class="o">&lt;-</span> <span class="n">cars</span> <span class="o">%&gt;%</span>
+        <span class="nf">select</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nuestro modelo acepta como parámetros de entrada 2 matrices de datos (X e Y). Por lo que a continuación transformamos los datos que se encuantran en listas a matrices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">X_matrix</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">unlist</span><span class="p">(</span><span class="n">X_list</span><span class="p">),</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">byrow</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+
+<span class="n">Y_matrix</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">unlist</span><span class="p">(</span><span class="n">Y_list</span><span class="p">),</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">byrow</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente ejecutamos la función construida con los parámetros necesarios. En este caso la matrix de datos que contiene la variabel independiente y la matriz de datos que contiene la variabel denpendiente.</p>
+<p>Almacenamos el resultado en una variable</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">modelo</span> <span class="o">&lt;-</span> <span class="nf">RegresionLinealFit</span><span class="p">(</span><span class="n">X_matrix</span><span class="p">,</span> <span class="n">Y_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para finalizar vamos a representar gráficamente el conjunto de datos con la recta que define al mismo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">modelo_df</span> <span class="o">=</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">modelo</span><span class="p">),</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+
+<span class="n">punto_0</span> <span class="o">&lt;-</span> <span class="n">modelo_df</span> <span class="o">%&gt;%</span>
+            <span class="nf">select</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
+
+<span class="n">punto_0</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">punto_0</span><span class="p">)</span>
+
+<span class="n">punto_1</span> <span class="o">&lt;-</span> <span class="n">modelo_df</span> <span class="o">%&gt;%</span>
+            <span class="nf">select</span><span class="p">(</span><span class="n">V2</span><span class="p">)</span>
+
+<span class="n">punto_1</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">punto_1</span><span class="p">)</span>
+
+
+<span class="c1">#punto_0 &lt;- modelo_df[1] + modelo_df[2] * 2.5</span>
+
+<span class="c1">#punto_1 &lt;- modelo_df[1] + modelo_df[2] * 25</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">modelo_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th scope=col>V1</th><th scope=col>V2</th></tr></thead>
+<tbody>
+	<tr><td>-17.57909</td><td>3.932409 </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">typeof</span><span class="p">(</span><span class="n">punto_0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'double'</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">punto_0</span><span class="p">,</span> <span class="n">punto_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">%&gt;%</span>
+        <span class="nf">select</span><span class="p">(</span><span class="n">speed</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span>
+            <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes </span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">speed</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">dist</span><span class="p">))</span> <span class="o">+</span>
+            <span class="nf">geom_line</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span> <span class="n">V1</span> <span class="o">+</span> <span class="n">V2</span> <span class="o">*</span> <span class="m">2.5</span> <span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">V1</span> <span class="o">+</span> <span class="n">V2</span> <span class="o">*</span> <span class="m">25</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>geom_path: Each group consists of only one observation. Do you need to adjust
+the group aesthetic?
+</pre></div>
+</div>
+<img alt="_images/RL_construccion_18_1.png" src="_images/RL_construccion_18_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span> <span class="n">punto_0</span> <span class="o">+</span> <span class="n">punto_1</span> <span class="o">*</span> <span class="m">2.5</span> <span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">punto_0</span> <span class="o">+</span> <span class="n">punto_1</span> <span class="o">*</span> <span class="m">25</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>geom_path: Each group consists of only one observation. Do you need to adjust
+the group aesthetic?
+</pre></div>
+</div>
+<img alt="_images/RL_construccion_19_1.png" src="_images/RL_construccion_19_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span> <span class="n">V1</span> <span class="o">+</span> <span class="n">V2</span> <span class="o">*</span> <span class="m">2.5</span> <span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">V1</span> <span class="o">+</span> <span class="n">V2</span> <span class="o">*</span> <span class="m">25</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>geom_path: Each group consists of only one observation. Do you need to adjust
+the group aesthetic?
+</pre></div>
+</div>
+<img alt="_images/RL_construccion_20_1.png" src="_images/RL_construccion_20_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">glimpse</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Observations: 1
+Variables: 2
+$ V1 &lt;dbl&gt; -17.57909
+$ V2 &lt;dbl&gt; 3.932409
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">datamatrix</span> <span class="o">=</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+
+<span class="nf">class</span><span class="p">(</span><span class="n">datamatrix</span><span class="p">)</span>
+
+<span class="n">datamatrix[1]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'data.frame'</div><div class="output text_html"><table>
+<thead><tr><th scope=col>V1</th></tr></thead>
+<tbody>
+	<tr><td>-17.57909</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">DF</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">Day</span><span class="p">,</span> <span class="n">Measure</span><span class="p">))</span> <span class="o">+</span> 
+    <span class="nf">geom_point</span><span class="p">()</span> <span class="o">+</span> 
+    <span class="nf">stat_summary</span><span class="p">(</span><span class="n">fun.y</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s">&quot;line&quot;</span><span class="p">)</span>
+
+
+<span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">((</span><span class="n">modelo[1]</span> <span class="o">+</span> <span class="p">(</span><span class="n">modelo[2]</span> <span class="o">*</span> <span class="m">2.5</span><span class="p">))</span> <span class="p">,(</span><span class="n">modelo[1]</span> <span class="o">+</span> <span class="n">modelo[2]</span> <span class="o">*</span> <span class="m">25</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="RL_concepto.html" title="previous page">Concepto</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

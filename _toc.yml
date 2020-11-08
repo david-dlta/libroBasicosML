@@ -4,4 +4,4 @@
 - part: Regresión Lineal Simple
   chapters:
   - file: RL_concepto
-  - file: RL_implementacion
+  - file: RL_construccion
