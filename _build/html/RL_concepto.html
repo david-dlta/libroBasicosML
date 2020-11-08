@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Regresión lineal simple &#8212; Basicos de Machine Learning</title>
+    <title>Concepto &#8212; Basicos de Machine Learning</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -95,7 +95,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  My first part
+  Regresión Lineal Simple
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -194,21 +194,14 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#concepto">
-   Concepto
+  <a class="reference internal nav-link" href="#estructura-del-modelo">
+   Estructura del modelo
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#estructura-del-modelo">
-     Estructura del modelo
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#estimacion-de-parametros">
-     Estimación de parámetros
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimacion-de-parametros">
+   Estimación de parámetros
+  </a>
  </li>
 </ul>
 
@@ -221,12 +214,10 @@
         
               <div>
                 
-  <div class="section" id="regresion-lineal-simple">
-<h1>Regresión lineal simple<a class="headerlink" href="#regresion-lineal-simple" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="concepto">
-<h2>Concepto<a class="headerlink" href="#concepto" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="concepto">
+<h1>Concepto<a class="headerlink" href="#concepto" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="estructura-del-modelo">
-<h3>Estructura del modelo<a class="headerlink" href="#estructura-del-modelo" title="Permalink to this headline">¶</a></h3>
+<h2>Estructura del modelo<a class="headerlink" href="#estructura-del-modelo" title="Permalink to this headline">¶</a></h2>
 <p>La Regresión Lineal simple es un modelo relativamente simple ymuy utilizado en el Machine Learning. Por ello es un buen punto de partida para iniciarse.</p>
 <p>En la Regresión Lineal la variable dependiente <span class="math notranslate nohighlight">\(y\)</span> sigue una función lineal de uno o más predictors <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, … , <span class="math notranslate nohighlight">\(x_D\)</span> más un error. La observación <span class="math notranslate nohighlight">\(n\)</span> tendrá la forma:</p>
 <div class="math notranslate nohighlight">
@@ -242,12 +233,11 @@
 \[y_n = \beta^Tx_n + \epsilon_n\]</div>
 </div>
 <div class="section" id="estimacion-de-parametros">
-<h3>Estimación de parámetros<a class="headerlink" href="#estimacion-de-parametros" title="Permalink to this headline">¶</a></h3>
+<h2>Estimación de parámetros<a class="headerlink" href="#estimacion-de-parametros" title="Permalink to this headline">¶</a></h2>
 <p>Una vez conocemos la estructura que nuestros datos siguen. La tarea del <em>Machine Learning</em> es la de estimar los parámetros <span class="math notranslate nohighlight">\(\beta\)</span>. se representan con <span class="math notranslate nohighlight">\(\hat{\beta}\)</span>. Estas estimaciones nos dan valores ajustados para la variable target representada por <span class="math notranslate nohighlight">\(\hat{y}_n\)</span>.</p>
 <p>La tarea de la estimación se puede realizar de dos maneras. La primera sería mediante la minimización del coste y la otra mediante la maximización de la probabilidad. En este caso nos vamos a centrar en la primera técnica para estimar <span class="math notranslate nohighlight">\(\hat{y}_n\)</span>.</p>
 <p>En <em>Machine Learning</em> normalmente se suele seleccionar una función de coste para los modelos. Esta funcion de coste define como de bién, dados unos parámetros, se es capaz de estimar los datos observados. Una vez contamos con dicha funcion podemos modificar los parámetros e iterativamente observar como son nuestras predicciones (buenas o malas). La función de coste más usada para la Regresión Lineal Simple es la media de los errores cuadrados.</p>
 <p>La función de coste de los mínimos cuadrados representa que el coste de nuestro modelo es proporcional a la suma de lso cuadrados de las diferencias entre los valores reales <span class="math notranslate nohighlight">\(y_n\)</span> y los valores ajustados <span class="math notranslate nohighlight">\(\hat{y}_n\)</span>, <span class="math notranslate nohighlight">\((y_n - \hat{y}_n)^2\)</span>. La razón de elevar al cuadrado la diferencia es la de perjudicar adicionalmente las predicciones que se alejen en exceso de los valores reales.</p>
-</div>
 </div>
 </div>
 

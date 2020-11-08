@@ -1,7 +1,7 @@
 # _toc.yml
 - file: landing-page
 
-- part: My first part
+- part: Regresión Lineal Simple
   chapters:
   - file: RL_comcepto
   - file: RL_implementacion
