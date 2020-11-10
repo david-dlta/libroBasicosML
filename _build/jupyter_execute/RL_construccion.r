@@ -11,6 +11,9 @@ RegresionLinealFit <- function(X,Y) {
   return(B_hat)
 }
 
+library(dplyr)
+library(ggplot2)
+
 cars %>%
         select(speed, dist) %>%
         ggplot(aes (x = speed, y = dist))+
@@ -30,40 +33,28 @@ modelo <- RegresionLinealFit(X_matrix, Y_matrix)
 
 modelo_df = as.data.frame(t(modelo), stringsAsFactors = FALSE)
 
-punto_0 <- modelo_df %>%
+b <- modelo_df %>%
             select(V1)
 
-punto_0 <- as.numeric(punto_0)
+b <- as.numeric(b)
 
-punto_1 <- modelo_df %>%
+m <- modelo_df %>%
             select(V2)
 
-punto_1 <- as.numeric(punto_1)
+m <- as.numeric(x)
 
 
 #punto_0 <- modelo_df[1] + modelo_df[2] * 2.5
 
 #punto_1 <- modelo_df[1] + modelo_df[2] * 25
 
-modelo_df
-
-typeof(punto_0)
-
-p <- c(punto_0, punto_1)
-
 df <- as.data.frame(t(p))
 
-cars %>%
-        select(speed, dist) %>%
-        ggplot() +
-            geom_point(aes (x = speed, y = dist)) +
-            geom_line(data = df, color='red', aes(x= V1 + V2 * 2.5 , y=V1 + V2 * 25, group = 1))
+ggplot() +
+    geom_point(data = cars, aes (x = speed, y = dist)) +
+    geom_line(data = NULL, aes(x= c(5,25) , y=c((5 * m) + b, (25 * m) + b)),color='red')
 
-ggplot() + geom_line(color='red', aes(x= punto_0 + punto_1 * 2.5 , y=punto_0 + punto_1 * 25, group = 1))
-
-ggplot(data = df, aes(x= V1 + V2 * 2.5 , y=V1 + V2 * 25, group = 1)) + geom_line()
-
-glimpse(df)
+ggplot(data = df, aes(x= c(0, 0 * x + b) , y=c(25, 25 * x + b))) + geom_line()
 
 datamatrix = as.data.frame(t(p), stringsAsFactors = FALSE)
 
