@@ -9,5 +9,5 @@
 - part: Clasificadores discriminativos
   chapters:
   - file: Clasificadores_discriminativos_concepto
-    chapter: 
+    section: 
     - file: Regresion_log_concepto
