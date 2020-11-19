@@ -1,7 +1,20 @@
 # _toc.yml
 - file: landing-page
 
+#- part: Regresión Lineal Simple
+# chapters:
+#  - file: RL_concepto
+#  - file: RL_construccion
+
 - part: Regresión Lineal Simple
-  chapters:
+ sections:
   - file: RL_concepto
   - file: RL_construccion
+     sections:
+      - file: my_second_page_subsection
+
+- part: Clasificadores discriminativos
+ sections:
+  - file: Clasificadores_discriminativos_concepto
+     sections:
+      - file: Regresion_log_concepto
