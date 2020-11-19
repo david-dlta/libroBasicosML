@@ -56,6 +56,7 @@
     <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Concepto" href="Clasificadores_discriminativos_concepto.html" />
     <link rel="prev" title="Concepto" href="RL_concepto.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -108,6 +109,20 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Construcción
+  </a>
+  <ul class="simple">
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Clasificadores discriminativos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clasificadores_discriminativos_concepto.html">
+   Concepto
   </a>
  </li>
 </ul>
@@ -233,7 +248,17 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Registered S3 methods overwritten by &#39;ggplot2&#39;:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attaching package: &#39;dplyr&#39;
+
+The following objects are masked from &#39;package:stats&#39;:
+
+    filter, lag
+
+The following objects are masked from &#39;package:base&#39;:
+
+    intersect, setdiff, setequal, union
+
+Registered S3 methods overwritten by &#39;ggplot2&#39;:
   method         from 
   [.quosures     rlang
   c.quosures     rlang
@@ -279,7 +304,7 @@
 </div>
 </div>
 </div>
-<p>Finalmente ejecutamos la función construida con los parámetros necesarios. En este caso la matrix de datos que contiene la variabel independiente y la matriz de datos que contiene la variabel denpendiente.</p>
+<p>Finalmente ejecutamos la función construida con los parámetros necesarios. En este caso la matrix de datos que contiene la variabel independiente y la matriz de datos que contiene la variabel dependiente.</p>
 <p>Almacenamos el resultado en una variable</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -288,7 +313,10 @@
 </div>
 </div>
 </div>
-<p>Para finalizar vamos a representar gráficamente el conjunto de datos con la recta que define al mismo.</p>
+<p>Para finalizar vamos a representar gráficamente el conjunto de datos con la recta que define al mismo. Pero antes debemos asignar los valores a las variables <em>b</em>, termino independiente de la ecuación de la recta, y <em>m</em>, pendiente de la recta. Para posteriormente introducir los valores de dichas variables en la ecuación</p>
+<div class="math notranslate nohighlight">
+\[y = b + m * x\]</div>
+<p>Con esta ecuación podemos hallar la coordenada y en función de la coordenada x con los valore <em>b</em> y <em>m</em> que nos ha devuelto el modelo de Regresión Lineal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">modelo_df</span> <span class="o">=</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">modelo</span><span class="p">),</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
@@ -301,19 +329,7 @@
 <span class="n">m</span> <span class="o">&lt;-</span> <span class="n">modelo_df</span> <span class="o">%&gt;%</span>
             <span class="nf">select</span><span class="p">(</span><span class="n">V2</span><span class="p">)</span>
 
-<span class="n">m</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-
-<span class="c1">#punto_0 &lt;- modelo_df[1] + modelo_df[2] * 2.5</span>
-
-<span class="c1">#punto_1 &lt;- modelo_df[1] + modelo_df[2] * 25</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="n">m</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -327,38 +343,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/RL_construccion_16_0.png" src="_images/RL_construccion_16_0.png" />
+<img alt="_images/RL_construccion_15_0.png" src="_images/RL_construccion_15_0.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">25</span><span class="p">,</span> <span class="m">25</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="p">)))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">datamatrix</span> <span class="o">=</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
-
-<span class="nf">class</span><span class="p">(</span><span class="n">datamatrix</span><span class="p">)</span>
-
-<span class="n">datamatrix[1]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">DF</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">Day</span><span class="p">,</span> <span class="n">Measure</span><span class="p">))</span> <span class="o">+</span> 
-    <span class="nf">geom_point</span><span class="p">()</span> <span class="o">+</span> 
-    <span class="nf">stat_summary</span><span class="p">(</span><span class="n">fun.y</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s">&quot;line&quot;</span><span class="p">)</span>
-
-
-<span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">((</span><span class="n">modelo[1]</span> <span class="o">+</span> <span class="p">(</span><span class="n">modelo[2]</span> <span class="o">*</span> <span class="m">2.5</span><span class="p">))</span> <span class="p">,(</span><span class="n">modelo[1]</span> <span class="o">+</span> <span class="n">modelo[2]</span> <span class="o">*</span> <span class="m">25</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -391,6 +379,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="RL_concepto.html" title="previous page">Concepto</a>
+    <a class='right-next' id="next-link" href="Clasificadores_discriminativos_concepto.html" title="next page">Concepto</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

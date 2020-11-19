@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Search &#8212; Basicos de Machine Learning</title>
+    <title>Concepto &#8212; Basicos de Machine Learning</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -35,7 +35,6 @@
     
   <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
 
-    
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
@@ -55,15 +54,13 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
-    <script type="text/javascript" src="_static/searchtools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
-  <script type="text/javascript" src="searchindex.js" defer></script>
-  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Hola" href="Regresion_log_concepto.html" />
+    <link rel="prev" title="Construcción" href="RL_construccion.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
 
 
 
@@ -85,7 +82,7 @@
 </a>
 </div>
 
-<form class="bd-search d-flex align-items-center" action="#" method="get">
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
@@ -120,11 +117,18 @@
   Clasificadores discriminativos
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="Clasificadores_discriminativos_concepto.html">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Concepto
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Regresion_log_concepto.html">
+     Hola
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -164,6 +168,18 @@
             class="fas fa-download"></i></button>
 
     
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Clasificadores_discriminativos_concepto.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
 </div>
         <!-- Source interaction buttons -->
 
@@ -175,6 +191,23 @@
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Clasificadores_discriminativos_concepto.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
 
     </div>
 
@@ -188,29 +221,37 @@
         
               <div>
                 
-  <h1 id="search-documentation">Search</h1>
-  <div id="fallback" class="admonition warning">
-  <script type="text/javascript">$('#fallback').hide();</script>
-  <p>
-    Please activate JavaScript to enable the search
-    functionality.
-  </p>
-  </div>
-  <p>
-    From here you can search these documents. Enter your search
-    words into the box below and click "search". Note that the search
-    function will automatically search for all of the words. Pages
-    containing fewer words won't appear in the result list.
-  </p>
-  <form action="" method="get">
-    <input type="text" name="q" aria-labelledby="search-documentation" value="" />
-    <input type="submit" value="search" />
-    <span id="search-progress" style="padding-left: 10px"></span>
-  </form>
-  
-  <div id="search-results">
-  
-  </div>
+  <div class="section" id="concepto">
+<h1>Concepto<a class="headerlink" href="#concepto" title="Permalink to this headline">¶</a></h1>
+<p>Las tecnicas de clasificación discriminativa son una parte esencial en el Machine learning. Un 70% de los problemas en este area de conocimineto son problemas de clasificaión. Los problemas de clasificación se engloban dentro del aprendizaje supervisado, que no es mas que el modelo en el que el proceso de generación de conocimiento se realiza con un grupo de ejemplos o datos etiquetados.</p>
+<p>Un clasificador es un algoritmo supervisado que pretende asignar un grupo a una observación. En otras palabras, la variable dependiente en problemas de clasificación representa una clase en un conjunto finito. Al contrario que en los problemas de regresión en los que la variable dependiente toma un valor continuo. Entre ejemplos de problemas de clasificación se encuentra la clasificación de pacientes en función de si tienen cancer o no, o la detección de dígitos escritos a mano.</p>
+<p>En los dos siguientes capítulos vamos a estudiar dos maneras de realizar esta clasificación. La primera es desde un punto de vista discriminativo y la segunda desde una perspectiva generativa.</p>
+<p>Los clasificadores disciminativos modelan la pertenencia de las observaciones a una clase en función de las variables de entrada.</p>
+<p>Los clasificadores generativos …</p>
+<p>El modelo de clasificación discriminativo de regresión logística es el mas utilizado, aun que no es el único. Cada uno de los modelos que se van a explicar es util dependiendo de la situación en la que nos encontremos.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
 
               </div>
               
@@ -220,6 +261,8 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="RL_construccion.html" title="previous page">Construcción</a>
+    <a class='right-next' id="next-link" href="Regresion_log_concepto.html" title="next page">Hola</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

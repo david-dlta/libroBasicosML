@@ -7,14 +7,14 @@
 #  - file: RL_construccion
 
 - part: Regresión Lineal Simple
- sections:
-  - file: RL_concepto
-  - file: RL_construccion
-     sections:
-      - file: my_second_page_subsection
+  sections:
+    - file: RL_concepto
+    - file: RL_construccion
+      sections:
+        - file: my_second_page_subsection
 
 - part: Clasificadores discriminativos
- sections:
-  - file: Clasificadores_discriminativos_concepto
-     sections:
-      - file: Regresion_log_concepto
+  sections:
+    - file: Clasificadores_discriminativos_concepto
+      sections:
+       - file: Regresion_log_concepto
