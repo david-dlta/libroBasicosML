@@ -6,8 +6,13 @@
   - file: RL_concepto
   - file: RL_construccion
 
+#- part: Clasificadores discriminativos
+#  chapters:
+#  - file: Clasificadores_discriminativos_concepto
+#  - file: Regresion_log_concepto
+
 - part: Clasificadores discriminativos
   chapters:
   - file: Clasificadores_discriminativos_concepto
-    section: 
-    - file: Regresion_log_concepto
+    sections:
+      - file: Regresion_log_concepto
